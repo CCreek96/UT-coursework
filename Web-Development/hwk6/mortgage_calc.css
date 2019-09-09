@@ -1,0 +1,75 @@
+/*
+
+        File: mortgage_calc.css
+        Author: Connor Creek
+        Date Created: 03 March 2019
+        Date Modified: 03 March 2019
+
+*/ 
+
+html {
+	margin: 2px;
+	padding: 2px;
+}
+
+body {
+	margin: 2px;
+	padding: 2px;
+	background-color: #e6ffff;
+}
+
+h2 {
+	text-align: center;
+
+}
+
+td {
+	padding-right: 60px;
+}
+
+#inputTable {
+	position: absolute;
+	width: 40%;
+	left: 0px;
+	top: 100px;
+        padding-left: 5%;
+        padding-right: 5%;
+}
+
+#outputTable {
+
+	position: absolute;
+	width: 40%;
+	right: 0px;
+	top: 100px;
+	padding-left: 5%;
+	padding-right: 5%;
+
+}
+
+#buttons {
+	position: relative;
+        width: 60%;
+        top: 250px;
+        padding-left: 30%;
+        padding-right: 30%;
+}
+#buttons td {
+	width: 30%;
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+#buttons input {
+        width: 100%;
+        padding: 5px;
+	margin: 5px;
+}
+
+.output {
+	border-style: none;
+}
+
+input {
+	background-color: inherit;
+}

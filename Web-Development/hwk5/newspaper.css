@@ -1,0 +1,177 @@
+/*
+	File: newspaper.css
+
+	Author: Connor Creek
+
+	Date Created: 13 Feb 2019
+
+	Date Modified: 22 Feb 2019
+*/
+
+html {
+	margin: 2px;
+	padding: 2px;
+}
+
+body {
+	margin: 2px;
+	padding: 2px;
+	color: black;
+	background-color: white;
+	font-family: Verdana, Geneva, Arial, sans-serif;
+	font-size: small;
+	line-height: 200%;
+}
+
+.header {
+	position: absolute;
+	top: 0px;
+	margin: 2px;
+	max-height: 120px;
+	width: 100%;
+	border-bottom: 2px double;
+	vertical-align: middle;	
+
+}
+.header h1 {
+        font-size: 300%;
+        font-weight: bold;
+        letter-spacing: 5px;
+        text-align: center;
+        vertical-align: middle;
+        color: black;
+}
+
+.header h2 {
+	font-size: small;
+        font-weight: bold;
+        letter-spacing: 5px;
+        text-align: center;
+        vertical-align: middle;
+        color: black;
+}
+
+.links {
+	border-top: 2px double;
+	border-bottom: 2px double;
+	width: 100%;
+}
+
+.links ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: white;
+}
+
+.links ul li {
+	float: left;
+	width: 11%;
+}
+
+.links ul li a {
+	display: block;
+	color: black;
+	width: 100%;
+	text-align: center;
+	padding: 5px 5px 5px 5px;
+	text-decoration: none;
+}
+
+.links ul li a:hover {
+	background-color: lightgrey;
+	color: blue;
+}
+
+.navCol {
+	position: absolute;
+	top: 250px;
+	left: 0px;
+	width: 24%;
+	min-height: 300px;
+	max-height: 400px;
+	margin: 2px;
+	padding-top: 2px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+}
+
+.adCol {
+	position: absolute;
+	top: 250px;
+	right: 0px;
+	width: 24%;
+        min-height: 300px;
+        max-height: 400px;
+        margin: 2px;
+        padding-top: 2px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        padding-left: 20px;
+}
+
+.footer {
+	position: relative;
+	top: 1200px;
+	width: 100%;
+	margin: 2px;
+	padding: 2px;
+	border-top: 2px double;
+	border-bottom: 2px solid;
+	text-align: center;
+}
+
+.content {
+	position: absolute;
+	top: 250px;
+	left: 28%;
+	right: 28%;
+	width: 43%;
+        height: 950px;
+        margin: 2px;
+        padding-top: 2px;
+        padding-right: 20px;
+        padding-bottom: 30px;
+        padding-left: 10px;
+}
+
+.content .headlines {
+	height: 50%;
+	padding-bottom: 50px;
+}
+
+.content .picture {
+	height: 50%;
+	bottom: 0px;
+}
+
+.picture img {
+	width: 90%;
+	height: 60%;
+	padding-top: 30px;
+	padding-left: 0%;
+}
+
+img p {
+	padding-top: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

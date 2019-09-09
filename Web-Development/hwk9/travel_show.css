@@ -1,0 +1,88 @@
+/*
+	File: hwk8.css
+	Author: Connor Creek
+	Date Created: 11 March 2019
+	Date Modified: 11 March 2019
+*/
+html {
+        margin: 2px;
+        padding: 2px;
+        height: 100%;
+        width: 100%;
+}
+
+body {
+        background-color: black;
+        margin: 2px;
+        padding: 2px;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+}
+form {
+        margin: 1px;
+        padding: 1px;
+        top: 100px;
+        height: 100%;
+        width: 100%;
+}
+
+div {
+        background-color: white;
+        position: relative;
+        top: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 510px;
+        width: 640px;
+        border: 1px solid white;
+}
+
+img {
+        vertical-align: top;
+        height: 480px;
+        width: 640px;
+}
+
+h1 {
+        margin: 2px;
+        padding: 40px 2px 35px 2px;
+        text-align: center;
+        color: white;
+        font-size: 50px;
+}
+
+img.img1 {
+        position: relative;
+        display: none;
+        top: 0px;
+        margin-left: auto;
+        z-index: 0;
+        margin-right: auto;
+}
+img.img2 {
+        position: relative;
+        display: block;
+        top: 0px;
+        margin-left: auto;
+        z-index: 10;
+        margin-right: auto;
+}
+
+#figCap{
+        position: relative;
+        bottom: 0px;
+        height: 30px;
+        padding-top: 5px;
+        width: 640px;
+        text-align: center;
+        vertical-align: bottom;
+        border: none;
+}
+
+.btn  {
+        position: absolute;
+        top: 680px;
+        left: 45%;
+        z-index: 0;
+}

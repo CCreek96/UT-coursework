@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Midterm 2 </Title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./tictactoe.css" media="all">
+		<script src="./jquery-3.3.1.min.js"></script>
+		<script src="./tictactoe.js"></script>
+  </head>
+  <body>
+  <div class="header">
+    <div class="headTitle">
+  		<h1> Tic-Tac-Toe </h1>
+    </div>
+      <div class="wins">
+          <label class="winsLabel" for="winsX"> Wins X: </label>
+          <input type="text" class="winsDisplay" id="winsX" value="0">
+          <label class="winsLabel" for="winsO"> Wins O: </label>
+          <input type="text" class="winsDisplay" id="winsO" value="0">
+          <button class="resetBtn" onclick="return resetClicked();"> Replay </button>
+      </div>
+  </div>
+  <div class="game">
+    <div class="gameBoard">
+  	   <table>
+          <tbody>
+            <tr>
+              <td>
+                <button class="b00" onclick="return tileClicked();">
+                  <img id="img00" src="">
+                </button>
+              </td>
+              <td>
+                <button class="b01" onclick="return tileClicked();">
+                  <img id="img01" src="">
+                </button>
+              </td>
+              <td>
+                <button class="b02" onclick="return tileClicked();">
+                  <img id="img02" src="">
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button class="b10" onclick="return tileClicked();">
+                  <img id="img10" src="">
+                </button>
+              </td>
+              <td>
+                <button class="b11" onclick="return tileClicked();">
+                  <img id="img11" src="">
+                </button>
+              </td>
+              <td>
+                <button class="b12" onclick="return tileClicked();">
+                  <img id="img12" src="">
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button class="b20" onclick="return tileClicked();">
+                  <img id="img20" src="">
+                </button>
+              </td>
+              <td>
+                <button class="b21" onclick="return tileClicked();">
+                  <img id="img21" src="">
+                </button>
+              </td>
+              <td>
+                <button class="b22" onclick="return tileClicked();">
+                  <img id="img22" src="">
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

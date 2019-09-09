@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> Mortgage Calculator </title>
+		<meta charset="UTF-8">
+		<link rel = "stylesheet" type = "text/css"
+	 		href = "./mortgage_calc.css" media = "all" />
+	</head>
+
+	<body>
+		<h2> Mortgage Calculator </h2>
+		<form id="calcForm" action="https://www.cknuckles.com/cgi/echo.cgi" method="post">
+			<div id="inputTable">
+			<table>
+				<tbody>
+					<tr>
+						<td colspan="2"><h3> Enter Your Loan Information </h3></td>
+					</tr>
+					<tr>
+						<td> Principal Amount </td>
+						<td>
+							<input type="text" name="principal" size="20">
+						</td>
+					</tr>
+					<tr>
+						<td> Annual Interest Rate (%) </td>
+						<td>
+							<input type="text" name="annualInterestRate" size="20">
+						</td>
+					</tr>
+					<tr>
+                                        	<td> Loan Term in Months </td>
+                                        	<td>
+                                        	        <input type="text" name="loanTermMonths" size="20">
+                                	        </td>
+                                	</tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="outputTable">
+			<table>
+				<tbody>
+					<tr>
+						<td colspan="2"><h3> Here is Your Payment Information </h3></td>
+					</tr>
+					<tr>
+						<td> Monthly Payments </td>
+						<td>
+							<input type="text" name="monthlyPmts" class="output" size="20">
+						</td>
+					</tr>	
+					<tr>
+        	        	                 <td> Sum of All Payments </td>
+						 <td>
+                                      		        <input type="text" name="totalPmts" class="output" size="20">
+	                               	        </td>
+					</tr>
+					<tr> 
+                       		                <td> Total Interest Paid </td>
+               	                	        <td>
+        	                        		<input type="text" name="totalInt" class="output" size="20">
+		                                </td>
+        	                        </tr>
+				</tbody>
+			</table>
+		</div>
+		<div id="buttons">
+			<table>
+				<tbody>
+					<tr>
+						<td>
+							<input type="button" name="calc" value="Calculate">
+						</td>
+						<td>
+							<input type="reset" value="Clear">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</form>
+		<script type="text/javascript">
+			<!--
+				document.getElementById("calcForm").calc.onclick = calcMortgage;
+				function calcMortgage () {
+					var monthlyPayment = "";
+					var totalPayment = "";
+					var totalInterest = "";
+					var elt = document.getElementById("calcForm");
+					var P = parseFloat (elt.principal.value);
+					var annIntRate = parseFloat (elt.annualInterestRate.value);
+					var r = (annIntRate/100) / 12;
+					var n = parseFloat(elt.loanTermMonths.value);
+					monthlyPayment = ((P * r) / (1 - (1 / ((1 + r)**n)))).toFixed(2);
+					totalPayment = (monthlyPayment * n).toFixed(2);
+					totalInterest = ((monthlyPayment * n) - P).toFixed(2);
+					elt.monthlyPmts.value = monthlyPayment;
+					elt.totalPmts.value = totalPayment;
+					elt.totalInt.value = totalInterest;
+					document.getElementById("dThreshold").style.display ="block";
+				}
+			// -->
+	
+		</script>
+	</body>
+</html>

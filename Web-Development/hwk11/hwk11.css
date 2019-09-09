@@ -1,0 +1,41 @@
+/*
+	File: hwk11.css
+	Author: Connor Creek
+	Date Created: 29 March 2019
+	Date Modified: 29 March 2019
+
+*/
+
+html {
+	margin: 2px;
+	padding: 2px;
+}
+
+body {
+	margin: 2px;
+        padding: 2px;
+	background-color: lightblue;
+}
+
+table {
+	position: absolute;
+	width: 80%;
+	height: 100%;
+	padding: 20px 5% 50px 5%;
+	background-color: white;
+	left: 10%;
+}
+
+h1 {
+	text-align: center;
+
+}	
+
+h3 {
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+input[type="reset"] {
+	padding-left: 100px;
+}

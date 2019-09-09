@@ -1,0 +1,83 @@
+/*
+	File: form_val.css
+	Author: Connor Creek
+	Date Created: 10 March 2019
+	Date Modified: 10 March 2019
+*/
+
+html {
+	margin: 2px;
+	padding: 2px;
+}
+
+body {
+	margin: 2px;
+	padding: 2px;
+	color: black;
+	background-color: rgb(240,248,255);
+        font-family: Didot, serif;
+	font-size: large;
+	line-height: 200%;
+}
+
+table {
+	position: absolute;
+	padding: 20px;
+	width: 60%;
+	top: 50px;
+	left: 20%;
+}
+
+tr {
+	height: 40px;
+	width: 60%;
+}
+
+th {
+	padding: 25px;
+	text-align: center;
+	font-family: Didot, serif; 
+	font-size: 200%; 
+}
+
+td {
+	padding: 20px 10px 20px 10px;
+	width:  50%;
+	height: 30px;
+	vertical-align: top;
+}
+
+input[type=text] {
+	position: absolute;
+	right: 0px;
+	width: 50%;
+	height: 20px;
+	background-color: rgb(225,255,255);
+	border-style: none none solid none;
+	border-width: .005px;
+	border-radius: 2px;
+}
+
+#reset {
+	position: absolute;
+	background-color: rgb(225,255,255);
+	color: black;
+	border: 1px outset lightgray;
+	font-family: Didot, serif;
+	font-size: 100%;
+	width: 200px;
+	left: 20px;
+	box-shadow: 1px 1px 3px;
+}
+
+#submit {
+	position: absolute;
+        background-color: rgb(225,255,255);
+        color: black;
+        border: 1px outset lightgray;
+        font-family: Didot, serif;
+        font-size: 100%;
+        width: 200px;
+	right: 0px;
+	box-shadow: 1px 1px 3px;
+}

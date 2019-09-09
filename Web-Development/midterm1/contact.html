@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel = "stylesheet" type = "text/css"
+			 href="./contact.css" media = "all" />
+		<title> Contact Us </title>
+	</head>
+	<body>
+		<div class="header">
+			<h1> Contact Us </h1>
+		</div>
+		<form method="post" action="http://www.cknuckles.com/cgi/echo.cgi">
+		<div class="content">
+			<table>
+				<tbody>
+
+					<tr>
+						<td colspan="2">
+							<h3>Contact Information</h3>
+
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="name">
+								Name:
+							</label>
+						</td>
+						<td>
+							<input name="name" id="name" placeholder="John Smith" type="text" size="30">
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<label for="email">
+								Email:
+							</label>
+						</td>
+						<td>
+							<input name="email" id="email" placeholder="john.smith@smithy.net" type="text" size="30">
+						</td>
+					</tr>
+
+          <tr>
+            <td>
+              <label for="phone">
+                Phone Number:
+              </label>
+            </td>
+            <td>
+              <input name="phone" id="phone" placeholder="512-333-4444" type="text" size="30">
+            </td>
+          </tr>
+
+					<tr>
+						<td colspan="2">
+							<h3>What activities are you interested in?</h3>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="bookClub">
+								Book club meetings
+
+							</label>
+						<td>
+							<input name="attraction" type="checkbox" id="bookClub" value="bookClub">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="poetryReadings">
+								Poetry readings
+							</label>
+						</td>
+						<td>
+							<input name="attraction" type="checkbox" id="poetryReadings" value="poetryReadings">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="childrenStories">
+								Children story readings
+							</label>
+						</td>
+						<td>
+							<input name="attraction" type="checkbox" id="childrenStories" value="childrenStories">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<h3>Additional Comments</h3>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<textarea name="comments"></textarea>
+						</td>
+					</tr>
+			   </tbody>
+       </table>
+     </div>
+                <div class="footer">
+   	             <input type="submit" value="Enter">
+                     <input type="reset" value="Clear">
+                </div>
+		</form>
+	</body>
+</html>

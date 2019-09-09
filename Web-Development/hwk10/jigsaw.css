@@ -1,0 +1,100 @@
+/*
+	File: jigsaw.css
+	Author: Connor Creek
+	Date Created: 25 March 2019
+	Date Modified: 25 March 2019
+*/
+
+html {
+	padding: 2px;
+	margin: 2px;
+}
+
+body {
+	top: 0px;
+	left: 0px;
+	padding: 0px;
+	margin: 0px;
+	background-color: yellow;
+}
+.head {
+	position: absolute;
+        top: 0px;
+        left: 0px;
+        height: 130px;
+        width: 100%;
+        text-align: center;
+        background-color: orange;
+}
+
+h1 {
+	width: 100%;
+	text-align: center;
+	padding-top: 30px;
+	padding-left: 50px;
+	vertical-align: middle;
+}
+
+.body{
+	position: absolute;
+	padding: 1px;
+	top: 160px;
+	left: 5%;
+	right: 5%;
+	height: 600px;
+	width: 100%;
+
+}
+
+.pieces {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 300px;
+}
+
+span img {
+	height: 100px;
+	width: 100px;
+}
+
+.grid {
+	position: absolute;
+	top: 120px;
+	left: 40%;
+	height: 600px;
+}
+
+.grid img {
+	top: 120px;
+	left: -200px;
+	height: 300px;
+	width: 400px;
+}
+
+.grid #done {
+	position: absolute;
+        top: 350px;
+	left: 130px;
+	height: 60px;
+	width: 150px;
+	background-color: orange;
+}
+.timer {
+        position: absolute;
+	top: 0px;
+	right: 60px;
+	width: 200px;
+}
+#timeLabel {
+	width: 200;
+	padding-left: 60px;
+	font-size: 130%;
+}
+#time {
+	width: 200;
+	height: 30px;
+	text-align: center;
+	font-size: 100%;
+}
+

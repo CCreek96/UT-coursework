@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> Registration Form </title>
+		<script type="text/javascript" src="./form_val.js"></script>
+		<link rel = "stylesheet" title = "basic style" type = "text/css"
+			href ="./form_val.css" media = "all" />
+	</head>
+
+	<body>
+		<form action="http://www.cknuckles.com/cgi/echo.cgi" id="textForm" method="post" onsubmit="return validate();">
+			<table>
+				<thead>
+					<tr>
+						<th colspan="2"> Registration Form </th> 
+					</tr>
+				</thead>
+				<tbody>	
+					<tr>
+						<td> Username </td>
+						<td> 
+							<input type="text" name="userName">
+						</td>
+					</tr>
+					<tr>
+						<td> Password </td>
+						<td> 
+							<input type="text" name="pass">
+						</td>
+					</tr>
+					<tr>
+						<td> Repeat Password </td>
+						<td> 
+							<input type="text" name="passCheck">
+						</td>
+					</tr>
+					<tr>
+						<td> 
+							<input type="submit" id="submit" value="Register">
+						</td>
+						<td> 
+							<input type="reset" id="reset" value="Clear">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</body>
+</html>

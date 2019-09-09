@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js">
+    </script>
+    <script>
+      function draw() {
+        context.clearRect(0, 0, width, height);
+        context.fillStyle = "yellow";
+        context.fillRect(0, 0, width, height);
+        context.strokeStyle = "red";
+        drawCircle(context);
+        updateCircle(context);
+      }
+      function ready() {
+        console.log("ready");
+        canvas = document.getElementById("drawing");
+        context = canvas.getContext("2d");
+        width = canvas.width;
+        height = canvas.height;
+        radius = 20;
+        center_x = 100;
+        center_y = 100;
+        dir_x = Math.random();
+        dir_y = Math.random();
+        setInterval(draw, 16);
+      }
+      function drawCircle(context) {
+        context.beginPath();
+        context.arc(center_x, center_y, radius, 0, 2*Math.PI);
+        context.stroke();
+        context.closePath();
+      }
+      function updateCircle(context) {
+        if(center_x + radius + dir_x >= width) {
+          center_x = width - radius;
+          dir_x = -dir_x
+        } else if (center_x - radius + dir_x < 0) {
+          center_x = radius;
+          dir_x = -dir_x
+        } else {
+          center_x += dir_x;
+        }
+        if (center_y + radius + dir_y >= height) {
+          center_y = width - radius;
+          dir_y = -dir_y;
+        } else if (center_y - radius + dir_y < 0) {
+          center_y = radius;
+          dir_y = -dir_y;
+        } else {
+          center_y += dir_y;
+        }
+      }
+      $(ready);
+    </script>
+  </head>
+  <body>
+    <canvas id="drawing" width=300 height=300>
+    </canvas>
+  </body>
+</html>

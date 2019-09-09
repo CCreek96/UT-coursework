@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title> Simple Adder </title>
+	</head>
+
+	<body>
+		<h3> Simple Adder </h3>
+		<form id="addForm" action="" method="post">
+		<table border="0">
+			<tbody>
+				<tr>
+					<td> Enter number 1 </td>
+					<td>
+						<input type="text" name="num1" size="20">
+					</td>
+				</tr>
+				<tr>
+					<td> Enter number 2 </td>
+					<td>
+						<input type="text" name="num2" size="20">
+					</td>
+				</tr>
+				<tr>
+					<td> The sum is </td>
+					<td>
+						<input type="text" name="sum" value="" size="20">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="button" name="addBtn" value="Add">
+					</td>
+					<td>
+						<input type="reset" value="Clear">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</form>
+		<script type="text/javascript">
+			<!--
+			document.getElementById("addForm").addBtn.onclick = addTwo;
+			function addTwo () {
+				var sum = "";
+				var elt = document.getElementById("addForm");
+				var x = parseFloat (elt.num1.value);
+				var y = parseFloat (elt.num2.value);
+				sum = x + y;
+				elt.sum.value = sum;
+			}
+			// -->
+		</script>
+	</body>
+</html>

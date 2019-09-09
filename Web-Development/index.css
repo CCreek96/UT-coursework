@@ -1,0 +1,61 @@
+/*
+
+	File: index.css
+	Author: Connor Creek
+	Date Created: 16 Feb 2019
+	Date Modified: 16 Feb 2019
+
+*/
+
+html {
+
+}
+head {
+        background: url("./hwk4/the-university-of-texas-at-austin-logo.jpg");
+}
+
+body {
+
+}
+
+caption {
+	padding-top:2%;
+	padding-bottom:3%;
+}
+
+table {
+	position:absolute;
+	margin-left:5%;
+	margin-right:5%;
+	margin-top:0%;
+	width: 90%;
+	border: 1px double;
+	border-collapse:collapse;
+}
+
+thead {
+	border: 1px double;
+}
+
+tbody {
+	border: 1px double;
+
+}
+
+th {
+	border:1px double;
+}
+
+td {
+	border:1px double;
+	padding:5px;
+}
+
+
+#background {
+	display: block;
+	background-image: url("./hwk4/the-university-of-texas-at-austin-logo.jpg");
+	background-color: #ffa44f;
+	top: 0px;
+	left: 0px;
+}

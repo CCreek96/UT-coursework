@@ -1,0 +1,105 @@
+/*
+
+        File: survey.css
+        Author: Connor Creek
+        Date Created: 16 Feb 2019
+        Date Modified: 16 Feb 2019
+
+*/
+
+
+html {
+	margin: 2px;
+	padding:2px;
+	min-width: 400px;
+}
+
+body {
+	margin: 2px;
+	padding: 2px;
+	color: #5d665b;
+	background-color: white;
+	font-family: Verdana, Geneva, Arial, sans-serif;
+	font-size: small;
+	line-height: 200%;
+}
+
+.header {
+ 	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 15%;
+ 	background-color: rgb(191, 87, 0);
+	z-index:1;
+}
+.content {
+	position: absolute;
+	top: 15%;
+	width: 100%;
+	height:100%
+}
+
+h1 { 
+	position: relative;
+	
+	color: white;
+	padding-top: 3%;
+	padding-left: 10%;
+	padding-bottom: 1%;
+	height: 50%;
+	max-width: 70%;
+	min-width: 50%;
+	vertical-align: middle;
+	text-align: center;
+	font-family: "GT Sectra", serif;
+	font-size: 400%;
+}
+
+img {
+	float: left;
+	display: block;
+	top: 5%;
+	left: 5%;
+	width: 20%;
+	z-index:2;
+}
+
+h3 {
+	position: relative;
+	border-bottom: 1px double;
+}
+table {
+	position: relative;
+	margin: 2px;
+	width: 50%;
+	padding-top: 0px;
+	padding-left: 25%;
+	padding-right: 25%;
+	vertical-align: top;
+	text-align: left;
+}
+td {
+	width: 300px;
+}
+
+tbody {
+	vertical-align: bottom;
+}
+
+.footer {
+	position: relative;
+	background-color: #bf5700;
+	top: 0%;
+	left: 0%;
+	bottom: 0%;
+	right: 0%;
+	width: 100%;
+	height: 7%;
+	border-top: 2px double;
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+

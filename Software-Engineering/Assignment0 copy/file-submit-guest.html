@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="shortcut icon" href="">
+       <script type="text/javascript" src="Users.js"></script>
+    <title>Guest File Upload</title>
+    <link rel="stylesheet" href="main.css">
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+        <script src="Users.js"></script>
+        <h1>Select answer key/file to upload</h1>
+        <h3>Submit Request</h3>
+       <input type="text" id="name" placeholder="Name">
+        <input type="password" id="email" placeholder="Email">
+        <input type="submit" onclick="createRequest()"></button>
+        <script>
+
+            function createRequest(){
+                var name = document.getElementById('name').value
+                var email = document.getElementById('email').value
+                requestChecker(name,email);
+                if (name.length > 0 && email.length > 0){
+                   window.alert("Your request has been submitted!");
+                }
+            }
+
+    </script>
+    <h3> View Requests</h3>
+        <input type="submit" value="View Requests" onclick="displayRequests()"></button>
+        <script type="text/javascript">
+            function displayRequests(){
+                window.alert(Requests);
+            }
+        </script>
+
+    <form method="get" action="login.html">
+        <center>
+        <button type="submit">Home</button>
+        </center>
+
+</body>
+
+</html>

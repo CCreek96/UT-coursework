@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<link rel = "stylesheet" type = "text/css"
+			 href="./survey.css" media = "all" />
+		<title> Survey Form </title>
+	</head>
+	<body>
+		<div class="header">
+			<img src="ut_seal.png" alt="seal">
+			<h1> Campus Visit Survey </h1>
+		</div>
+		<form method="post" action="http://www.cknuckles.com/cgi/echo.cgi">
+		<div class="content">
+			<table>
+				<tbody>
+				
+					<tr>
+						<td colspan="2">
+							<h3>Contact Information</h3>
+					
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="name">
+								Name:
+							</label>
+						</td>
+						<td>
+							<input name="name" id="name" placeholder="John Smith" type="text" size="30">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="street">
+								Street:
+							</label>
+						</td>
+						<td>
+							<input name="street" id="street" placeholder="42 Wallaby Way" type="text" size="30">
+						</td>
+					</tr>
+			
+					<tr>
+						<td>
+							<label for="email">
+								Email:
+							</label>
+						</td>
+						<td>
+							<input name="email" id="email" placeholder="john.smith@smithy.net" type="text" size="30">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<h3>What did you like most about campus?</h3>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="students">
+								Students
+			
+							</label>
+						<td>
+							<input name="attraction" type="checkbox" id="students" value="students">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="location">
+								Location
+							</label>
+						</td>
+						<td>
+							<input name="attraction" type="checkbox" id="location" value="location">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="campus">
+								Campus
+							</label>
+						</td>
+						<td>
+							<input name="attraction" type="checkbox" id="campus" value="campus">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="courses">
+								Courses offered
+							</label>
+						</td>
+						<td>
+							<input name="attraction" type="checkbox" id="courses" value="courses">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="dorms">
+								Dorm rooms	
+							</label>
+						</td>
+						<td>
+							<input name="attraction" type="checkbox" id="dorms" value="dorms">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="sports">
+								Sports
+							</label>
+						</td>
+						<td>
+							<input name="attraction" type="checkbox" id="sports" value="sports">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<h3>What made you interested in UT?</h3>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="family">
+								Family
+							</label>
+						</td>
+						<td>
+							<input name="interests" type="radio" id="family" value="family">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>
+								Friends
+							</label>
+						</td>
+						<td>
+							<input name="interests" type="radio" id="friends" value="friends">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>
+								Television
+							</label>
+						</td>
+						<td>
+							<input name="interests" type="radio" id="television" value="television">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>
+								Internet
+							</label>
+						</td>
+						<td>
+							<input name="interests" type="radio" id="internet" value="internet">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label>
+								Other
+							</label>
+						</td>
+						<td>
+							<input name="interests" type="radio" id="other" value="other">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<h3>Departments Visited?</h3>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<select multiple id="department" name="department">
+								<option value="cs"> Computer Science </option>
+								<option value="economics"> Economics </option>
+								<option value="engineering"> Engineering </option>
+								<option value="business"> Business </option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<h3>Additional Comments</h3>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<textarea name="comments" rows="5" cols="30"></textarea>
+						</td>
+					</tr>
+				</div>
+			</tbody>
+		</table>
+                <div class="footer">
+   	             <input type="submit" value="Enter">
+                     <input type="reset" value="Clear">
+                </div>
+		</form>
+	</body>
+</html>

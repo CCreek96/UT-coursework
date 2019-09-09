@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title> Jig-Saw Puzzle </title>
+		<link rel = "stylesheet" type = "text/css"
+	 		href = "./jigsaw.css" media = "all" />
+		<script type = "text/javascript" src = "./jigsaw.js"></script>
+	</head>
+
+	<body onload="return getImages(); timer();">
+		<div class="head">
+			<h1> Jig-Saw Puzzle </h1>
+		</div>
+		<div class="body">
+			<div class="grid">
+				<img src="./puzzleback.gif" alt="grid">
+				<input type="button" value="Done"  id="done" onclick="return stopTimer();">
+			</div>
+			<div class="pieces">
+				<span id="span1" style="position: relative; top: 10px; left: 10px; height: 100px; width: 100px;" onmousedown = "grabber(event);">
+					<img id="img1" data-name="" src=""> 
+				</span>
+				<span id="span2" style="position: relative; top: 10px; left: 10px; height: 100px; width: 100px;" onmousedown = "grabber(event);">
+					<img id="img2" src="">
+				</span>
+				<span id="span3" style="position: relative; top: 10px; left: 10px; height: 100px; width: 100px;" onmousedown = "grabber(event);">
+					<img id="img3" src="">
+				</span>
+				<span id="span4" style="position: relative; top: 10px; left: 10px; height: 100px; width: 100px;" onmousedown = "grabber(event);">
+					<img id="img4" src="">
+				</span>
+				<span id="span5" style="position: relative; top: 10px; left: 10px; height: 100px; width: 100px;" onmousedown = "grabber(event);">
+					<img id="img5" src="">
+				</span>
+				<span id="span6" style="position: relative; top: 10px; left: 10px; height: 100px; width: 100px;" onmousedown = "grabber(event);">
+					<img id="img6" src=""> 
+				</span>
+				<span id="span7" style="position: relative; top: 10px; left: 10px; height: 100px; width: 100px;" onmousedown = "grabber(event);">
+					<img id="img7" src="">
+				</span>
+				<span id="span8" style="position: relative; top: 10px; left: 10px; height: 100px; width: 100px;" onmousedown = "grabber(event);">
+					<img id="img8" src="">
+				</span>
+				<span id="span9" style="position: relative; top: 10px; left: 10px; height: 100px; width: 100px;" onmousedown = "grabber(event);">
+					<img id="img9" src="">
+				</span>
+				<span id="span10" style="position: relative; top: 10px; left: 10px; height: 100px; width: 100px;" onmousedown = "grabber(event);">
+					<img id="img10" src="">
+				</span>
+				<span id="span11" style="position: relative; top: 10px; left: 10px; height: 100px; width: 100px;" onmousedown = "grabber(event);">
+					<img id="img11" src="">
+				</span>
+				<span id="span12" style="position: relative; top: 10px; left: 10px; height: 100px; width: 100px;" onmousedown = "grabber(event);">
+					<img id="img12" src="">
+				</span>
+			</div>
+			<div class="timer">
+				<label id="timeLabel" for="time"> Time Taken </label>
+				<input type="text" id="time" value="00:00:00">
+			
+			</div>
+		</div>
+	</body>
+</html>

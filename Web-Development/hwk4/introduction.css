@@ -1,0 +1,118 @@
+/*
+
+	File: introduction.css
+	Author: Connor Creek
+	Date Created: 16 Feb 2019
+	Date Modified: 16 Feb 2019
+
+*/
+
+html {
+	margin: 2px;
+	padding: 2px;
+}
+
+body {
+	margin: 2px;
+	padding: 0px;
+	min-width: 500px;
+	color: black;
+	background-color: white;
+	font-family: 'Raleway', sans-serif;
+	font-size: medium;
+	line-height: 200%;
+}
+
+.header {
+	position: absolute;
+	width: 100%;
+	height: 350px;
+	left: 0px;
+	top: 0px;
+	background-color: rgb(191, 87, 0);
+}
+
+#myImg {
+	float: left;
+        overflow-x: hidden;
+	padding-left: 5px;
+        padding-top: 5px;
+	padding-right: 5px;
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-bottom: 5px;
+        margin-right: 10px;
+}
+
+#myImg img {
+	height: 320px;
+	width: 250px;
+	overflow-x: hidden;
+	box-shadow: 0 4px 8px 0 red;
+	border-radius: 5px;
+}
+
+#name {
+	padding-top: 10%;
+        right: 0px;
+        min-width: 40%;
+        max-width: 75%;
+        height: 320px;
+}
+
+#name h1 {
+	text-align: right;
+	font-size: 350%;
+	font-family: 'Playfair Display', serif;
+	font-weight: bold;
+	vertical-align: bottom;
+	text-shadow: 4px 2px 10px;
+	
+}
+
+h2 {
+        text-align: left;
+	padding-left: 10px;
+	padding-bottom: 0px;
+        font-size: 150%;
+        font-family: 'Playfair Display', serif;
+}
+
+h4 {
+	text-align: left;
+        font-size: 100%;
+        font-family: 'Playfair Display', serif;
+}
+
+.content {
+	position: relative;
+	top: 350px;
+}
+
+h2 hr {
+	padding-top: 0px;
+}
+
+#contactInfo {
+	padding-left: 15px;
+}
+
+dl {
+	padding-left: 15px;
+}
+
+.footer {
+	position: relative;
+	height: 40px;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	top: 350px;
+        background-color: rgb(191, 87, 0);
+}
+
+#signature {
+	text-align: center;
+	vertical-align: middle;
+}
+

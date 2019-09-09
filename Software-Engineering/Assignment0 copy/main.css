@@ -1,0 +1,25 @@
+body {
+    background-image: url("THIS.png");
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-family: "Arial Black", Gadget, sans-serif
+
+}
+
+h1 {
+  color: white;
+  align-items: center;
+  font-size: 350%;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+
+}
+
+.box{
+  background-color: white;
+  position: absolute;
+  height: 40%;
+  width: 50%;
+  left: 25%;
+  top: 40%;
+}

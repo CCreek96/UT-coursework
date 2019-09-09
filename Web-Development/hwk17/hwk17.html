@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Sign Up </title>
+    <script type ="text/javascript" src = "./hwk17.js"></script>
+  </head>
+  <body>
+    <h1> Sign Up </h1>
+    <form action="./hwk17.php" method="post">
+      <label> Username
+        <input type="text" id="uname" name="uname" value="" onchange="return checkUsername();">
+      </label><br>
+      <label> Password
+          <input type="text" id="passwd" name="passwd" value="">
+      </label><br>
+      <input type="submit" name="submit" value="Submit" onclick="return validate();"s>
+      <input type="reset" name="reset" value="Reset">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,985 @@
+
+
+Study Guide for CS 313E Test 3 (Spring 2018)
+
+* You should know the following sorting algorithms and their efficiency
+  - selection sort, bubble sort, insertion sort, merge sort and
+  quick sort. You should be able to trace each of the algorithms
+  for a given array.
+
+  # Selection sort - Efficiency: O(N²)
+  def selectionSort (a):
+    for i in range (len(a) - 1):
+      # find the minimum
+      min = a[i]
+      minIdx = i
+
+      for j in range (i + 1, len(a)):
+        if (a[j] < min):
+          min = a[j]
+	        minIdx = j
+
+      # Swap the minimum element with the element at the ith place
+      a[minIdx] = a[i]
+      a[i] = min
+
+  # Bubble sort - Efficiency: O(N²)
+  def bubbleSort1 (a):
+  idx = 0
+  while (idx < len(a) - 1):
+    jdx = len(a) - 1
+    while (jdx > idx):
+      if (a[jdx] < a[jdx - 1]):
+        a[jdx], a[jdx - 1] = a[jdx - 1], a[jdx]
+      jdx = jdx - 1
+    idx = idx + 1
+
+  def bubbleSort2 (a):
+    swapped = True
+    idx = 0
+    while ((idx < len(a) - 1) and swapped):
+      jdx = len(a) - 1
+      swapped = False
+      while (jdx > idx):
+        if (a[jdx] < a[jdx - 1]):
+          a[jdx], a[jdx - 1] = a[jdx - 1], a[jdx]
+	        swapped = True
+        jdx = jdx - 1
+      idx = idx + 1
+
+  # Insertion sort - Efficiency: O(N²)
+  def insertion_sort1 (a):
+  for i in range (1, len(a)):
+    j = i
+    while ((j > 0) and (a[j] < a[j - 1])):
+      a[j], a[j - 1] = a[j - 1], a[j]
+      j += -1
+
+  def insertion_sort2 (a):
+    for i in range (1, len(a)):
+      tmp = a[i]
+      j = i
+      while ((j > 0) and (a[j - 1] > tmp)):
+        a[j] = a[j - 1]
+        j += -1
+      a[j] = tmp
+
+  # Merge sort - Efficiency: O(N log (N))
+  def mergeSort (a, left, right):
+  if (left < right):
+    center = (left + right) / 2
+    mergeSort (a, left, center)
+    mergeSort (a, center + 1, right)
+    merge_sort (a, left, center, right)
+
+  def merge_sort (a, left, center, right):
+    first1 = left
+    last1 = center
+    first2 = center + 1
+    last2 = right
+    b = []
+
+    while ((first1 <= last1) and (first2 <= last2)):
+      if (a[first1] < a[first2]):
+        b.append(a[first1])
+        first1 = first1 + 1
+      else:
+        b.append(a[first2])
+        first2 = first2 + 1
+
+    while (first1 <= last1):
+      b.append(a[first1])
+      first1 = first1 + 1
+
+    while (first2 <= last2):
+      b.append(a[first2])
+      first2 = first2 + 1
+
+    idxA = left
+    for i in range (len(b)):
+      a[idxA] = b[i]
+      idxA = idxA + 1
+
+  # Quick sort - Efficiency: Worst Case -> O(N²); Best Case -> O(Nlog(N))
+  def qsort1 (a, lo, hi):
+  if (lo >= hi):
+    return
+
+  pivot = a[lo]
+  m = lo;
+  for i in range (lo, hi + 1):
+    if (a[i] < pivot):
+      m = m + 1
+      a[m], a[i] = a[i], a[m]
+
+  a[lo], a[m] = a[m], a[lo]
+
+  qsort1 (a, lo, m - 1)
+  qsort1 (a, m + 1, hi)
+
+  def qsort2 (a, lo, hi):
+    if (lo >= hi):
+      return
+
+    left = lo
+    right = hi
+    pivot = a[(lo + hi) / 2]
+
+    while (left < right):
+      while (a[left] < pivot):
+        left = left + 1
+      while (pivot < a[right]):
+        right = right - 1
+
+      if (left <= right):
+        a[left], a[right] = a[right], a[left]
+        left = left + 1
+        right = right - 1
+
+    qsort2 (a, lo, right)
+    qsort2 (a, left, hi)
+
+* You should be able to apply binary search and merge algorithms.
+
+  # Binary Search
+  def binarySearch (a, x):
+  lo = 0
+  hi = len(a) - 1
+  while (lo <= hi):
+    mid = (lo + hi) // 2
+    if (x > a[mid]):
+      lo = mid + 1
+    elif (x < a[mid]):
+      hi = mid - 1
+    else:
+      return mid
+  return -1
+
+  # Merge
+  def merge (a, b):
+  c = []
+  idxA = 0
+  idxB = 0
+
+  while ((idxA < len(a)) and (idxB < len(b))):
+    if (a[idxA] < b[idxB]):
+      c.append (a[idxA])
+      idxA = idxA + 1
+    else:
+      c.append (b[idxB])
+      idxB = idxB + 1
+
+  # if a is not empty write it out
+  while (idxA < len(a)):
+    c.append (a[idxA])
+    idxA = idxA + 1
+
+  # if b is not empty write it out
+  while (idxB < len(b)):
+    c.append (b[idxB])
+    idxB = idxB + 1
+
+  return c
+
+* You should be familiar with different classes of algorithms -
+  brute force, greedy, divide and conquer, and dynamic programming.
+
+  # Brute force: Enumerating all possible candidates for a solution and
+  checking whether each candidate satisfies the problem
+
+  # greedy: Always makes the choice that seems to be the best at that moment
+  (locally-optimum solution) in hopes of achieving the best overall solution
+  (globally-optimum solution)
+  -> Makes the globally-optimum solution when:
+    < making change in USD/Euro
+    < Shortest path (Kruskal/Prim/Dijkstra)
+
+  # Divide and conquer: Recursively Breaking down a problem into sub-problems
+  until they become simple enough to be solved directly, then are combined
+  to give a solution to the main problem
+
+  # Dynamic programming: Breaking down a problem into sub-problems and storing
+  the solution to each sub-problem so that each is only solved once
+
+* Using recursion, you should be able to do permutation and
+  combination and back tracking.
+
+  # Permutation
+  def permute (a, lo, hi):
+  if (lo == hi):
+    print (a)
+  else:
+    for i in range (lo, hi):
+      a[i], a[lo] = a[lo], a[i]
+      permute (a, lo + 1, hi)
+      a[i], a[lo] = a[lo], a[i]
+
+  # Combination
+  def combine (a, b, idxA):
+    if (idxA == len(a)):
+      if (len(b) > 0):
+        print (b)
+        return
+    else:
+      c = b[:]
+      b.append (a[idxA])
+      idxA = idxA + 1
+      combine (a, b, idxA)
+      combine (a, c, idxA)
+
+* You should know the algorithms that we covered using the following
+  data structures - stacks, queues, linked lists and binary search
+  trees. You should be able to modify the data structures according
+  to specifications - like creating a doubly linked list.
+
+  # stacks (First in, last out)
+    class Stack (object):
+      def __init__ (self):
+        self.stack = []
+
+      # add an item to the top of the stack
+      def push (self, item):
+        self.stack.append ( item )
+
+      # remove an item from the top of the stack
+      def pop (self):
+        return self.stack.pop()
+
+      # check what item is on top of the stack without removing it
+      def peek (self):
+        return self.stack[len(self.stack) - 1]
+
+      # check if a stack is empty
+      def isEmpty (self):
+        return (len(self.stack) == 0)
+
+      # return the number of elements in the stack
+      def size (self):
+        return (len(self.stack))
+
+  # Queues (First in, first out)
+    class Queue (object):
+      def __init__ (self):
+        self.queue = []
+
+      def enqueue (self, item):
+        self.queue.append (item)
+
+      def dequeue (self):
+        return (self.queue.pop(0))
+
+      def isEmpty (self):
+        return (len (self.queue) == 0)
+
+      def size (self):
+        return len (self.queue)
+
+  # Linked List
+    class Link (object):
+      def __init__(self, data):
+        self.data = data
+        self.next = None
+
+    class LinkedList (object):
+      def __init__(self):
+        self.first = None
+
+      # get number of links
+      def get_num_links (self):
+        current = self.first
+        count = 0
+        if (current == None):
+          return count
+        while (current != None):
+          count += 1
+          current = current.next
+        return count
+
+      # add an item at the beginning of the list
+      def insert_first (self, item):
+        new_link = Link(item)
+
+        new_link.next = self.first
+        self.first = new_link
+
+      # add an item at the end of a list
+      def insert_last (self, item):
+        new_link = Link (item)
+        current = self.first
+
+        if (current == None):
+          self.first = new_link
+          return
+
+        while (current.next != None):
+            current = current.next
+
+        current.next = new_link
+
+      # add an item in an ordered list in ascending order
+      def insert_in_order (self, item):
+        new_link = Link(item)
+        current = self.first
+
+        if (current == None or current.data > new_link.data):
+          self.insert_first(new_link.data)
+          return
+
+        while (current.next != None and current.next.data <= new_link.data):
+            current = current.next
+
+        new_link.next = current.next
+        current.next = new_link
+
+      # search in an unordered list, return None if not found
+      def find_unordered (self, item):
+        current = self.first
+
+        if (current == None):
+          return None
+
+        while (current.data != item):
+          if (current.next == None):
+            break
+          else:
+            current = current.next
+
+        if (current.data == item):
+          return current
+        else:
+          return None
+
+
+      # Search in an ordered list, return None if not found
+      def find_ordered (self, item):
+        current = self.first
+
+        if (current == None):
+          return None
+
+        while (current.data < item and current != None):
+          if (current.next == None):
+            break
+          else:
+            current = current.next
+
+        if (current.data == item):
+          return current.data
+        else:
+          return None
+
+      # Delete and return Link from an unordered list or None if not found
+      def delete_link (self, item):
+        previous = self.first
+        current = self.first
+
+        if (current == None):
+          return None
+
+        while (current.data != item):
+          if (current.next == None):
+            return None
+          else:
+            previous = current
+            current = current.next
+
+        if (current == self.first):
+          self.first = self.first.next
+        else:
+          previous.next = current.next
+
+        return current
+
+      # String representation of data 10 items to a line, 2 spaces between data
+      def __str__ (self):
+        current = self.first
+        s = ""
+        count = 0
+
+        if (current == None):
+          return s
+
+        while (current != None):
+          s += str(current.data) + "  "
+          current = current.next
+          count += 1
+          if (count % 10 == 0):
+            s += "\n"
+
+        return s
+
+      # Copy the contents of a list and return new list
+      def copy_list (self):
+        current = self.first
+        new_list = LinkedList()
+
+        while (current != None):
+          new_list.insert_last(current.data)
+          current = current.next
+
+        return new_list
+
+      # Reverse the contents of a list and return new list
+      def reverse_list (self):
+        new_list = LinkedList()
+        current = self.first
+
+        while (current != None):
+          new_list.insert_first(current.data)
+          current = current.next
+
+        return new_list
+
+      # Sort the contents of a list in ascending order and return new list
+      def sort_list (self):
+        new_list = LinkedList()
+        current = self.first
+
+        while (current != None):
+          new_list.insert_in_order(current.data)
+          current = current.next
+
+        return new_list
+
+
+      # Return True if a list is sorted in ascending order or False otherwise
+      def is_sorted (self):
+        current = self.first
+
+        while(current != None):
+          if(current.next == None):
+            current = current.next
+            continue
+          elif(current.next.data < current.data):
+            return False
+          else:
+            current = current.next
+
+        if(current == None):
+          return True
+
+      # Return True if a list is empty or False otherwise
+      def is_empty (self):
+        return (self.first == None)
+
+      # Merge two sorted lists and return new list in ascending order
+      def merge_list (self, other):
+        current1 = self.first
+        current2 = other.first
+        merged = LinkedList()
+
+        while current1 != None:
+          merged.insert_in_order(current1.data)
+          current1 = current1.next
+
+        while current2 != None:
+          merged.insert_in_order(current2.data)
+          current2 = current2.next
+
+        return merged
+
+
+      # Test if two lists are equal, item by item and return True
+      def is_equal (self, other):
+        current1 = self.first
+        current2 = other.first
+        flag = True
+
+        if (self.get_num_links() != other.get_num_links()):
+          flag = False
+
+        while (current1.next != None):
+          if (current1.data != current2.data):
+            flag = False
+          else:
+            current1 = current1.next
+            current2 = current2.next
+
+        return flag
+
+      # Return a new list, keeping only the first occurence of an element
+      # and removing all duplicates. Do not change the order of the elements.
+      def remove_duplicates (self):
+        new_list = LinkedList()
+        current = self.first
+
+        while (current != None):
+          if (new_list.find_ordered(current.data) != None):
+            current = current.next
+          else:
+            new_list.insert_last(current.data)
+            current = current.next
+
+        return new_list
+
+  # Binary Search Tree
+    class Node (object):
+      def __init__ (self, data):
+        self.data = data
+        self.lchild = None
+        self.rchild = None
+
+      class Tree (object):
+      def __init__ (self):
+        self.root = None
+
+      # insert a node in a tree
+      def insert (self, val):
+        new_node = Node (val)
+
+        if (self.root == None):
+          self.root = new_node
+        else:
+          current = self.root
+          parent = self.root
+          while (current != None):
+            parent = current
+            if (val < current.data):
+              current = current.lchild
+            else:
+              current = current.rchild
+          if (val < parent.data):
+            parent.lchild = new_node
+          else:
+            parent.rchild = new_node
+
+      # in order traversal - left, center, right
+      def in_order (self, aNode):
+        if (aNode != None):
+          self.in_order (aNode.lchild)
+          print (aNode.data)
+          self.in_order (aNode.rchild)
+
+      # Returns true if two binary trees are similar
+      def is_similar (self, pNode):
+        return is_similar_helper(self, self.root, pNode.root)
+
+      # Prints out all nodes at the given level
+      def print_level (self, level):
+        return print_level_helper(self, self.root, level)
+
+      # Returns the height of the tree
+      def get_height (self):
+        return get_height_helper(self, self.root)
+
+      # Returns the number of nodes in the left subtree and
+      # the number of nodes in the right subtree and the root
+      def num_nodes (self):
+        return num_nodes_helper(self, self.root)
+
+* You should be able to use a hash function and hash using single
+  probing, quadratic probing, and double hashing.
+
+  # arrayIndex = num % arraySize
+
+  # Open Addressing - when a data item cannot be placed at the index calculated
+  by the hash function, another location in the aray is sought.
+
+    # linear probing: starts at the key's mapped bucket and inserts if it is
+    empty or checks the subsequent buckets until an empty bucket is found
+      > stepSize = ((key % arraySize) + (i)) for i = 0, 1, ..., n
+      > performance is determined by the load factor:
+          loadFactor = nItems / arraySize
+
+    # quadratic probing: starts at the key's mapped bucket and inserts if it is
+    empty or checks the next bucket according to the step size until an empty
+    one is found
+      > stepSize = ((key % arraySize) + (i^2))  for i = 0, 1, ..., n
+
+    # double hashing: starts at the key's mapped bucket and inserts if it is
+    empty or uses a second hash function to determine the step size (requires
+    that the array size is a prime number)
+      > h1 = key % arraySize
+      > h2 = C - (key % C)
+        -> C is a constant that is a prime number less than the array size
+      > stepSize = ((h1(key) + i * h2(key)) % arraySize) for i = 0, 1, ..., n
+
+
+* You should be able to trace the algorithms to create a heap, add
+  or delete nodes from a heap and use heap sort to sort an array.
+
+  # Heap
+    class Heap (object):
+      def __init__ (self):
+        self.heap = []
+
+      # return the size of the heap
+      def get_size (self):
+        return len (self.heap)
+
+      # return if the heap is empty
+      def is_empty (self):
+        return (self.get_size() == 0)
+
+      # get index of left child
+      def lchild_idx (self, idx):
+        new_idx = 2 * idx + 1
+        if (new_idx >= len(self.heap)):
+          new_idx = -1
+        return new_idx
+
+      # get index of right child
+      def rchild_idx (self, idx):
+        new_idx = 2 * idx + 2
+        if (new_idx >= len(self.heap)):
+          new_idx = -1
+        return new_idx
+
+      # get index of parent
+      def parent_idx (self, idx):
+        new_idx = (idx - 1 ) // 2
+        if (idx == 0):
+          new_idx = -1
+        return new_idx
+
+      # move a node up from the bottom to its rightful position
+      def percolate_up (self, idx):
+        node_val = self.heap[idx]
+        parent = parent_idx (idx)
+        while ((idx > 0) and (self.heap[parent] < node_val)):
+          self.heap[idx] = self.heap [parent]
+          idx = parent
+          parent = parent_idx (idx)
+        self.heap[idx] =  node_val
+
+
+      # move a node down from the top to its rightful position
+      def percolate_down (self, idx):
+        node_val = self.heap[idx]
+        num_elements = self.get_size()
+        while (idx < num_elements // 2):
+          left_child = lchild_idx (idx)
+          right_child = rchild_idx (idx)
+          if ((right_child > -1) and (self.heap[left_child] > self.heap[right_child])):
+            larger_child = left_child
+          else:
+            larger_child = right_child
+          if (node_val >= self.heap[larger_child]):
+            break;
+          self.heap[idx] = self.heap[larger_child]
+          idx = larger_child
+        self.heap[idx] = node_val
+
+      # make a heap of a list
+      def make_heap (self, idx):
+        num_elements = self.get_size()
+        if (idx > ((num_elements // 2) - 1)):
+          return
+        right_child = rchild_idx (idx)
+        if (right_child > -1):
+          make_heap (right_child)
+        make_heap (lchild_idx(idx))
+        percolate_down (idx)
+
+      # insert an element in the heap
+      def insert (self, val):
+        self.heap.append (val)
+        new_pos = self.get_size() - 1
+        # percolate the new element up
+        percolate_up (new_pos)
+
+      # remove the root or the max element in the heap
+      def remove (self):
+        root = self.heap[0]
+        self.heap[0] = self.heap[-1]
+        self.heap.pop()
+        percolate_down (0)
+        return root
+
+* Show how to balance a binary search tree to create an AVL tree.
+  Show how to get the balance factor in a binary search tree and
+  keep the tree balanced after insertions or deletions.
+
+  # AVL Tree: A balanced binary search tree where pairs of sub-trees differ
+  in height by at most one
+    > it is balanced if its balance factor is -1, 0, or 1
+
+  # Get balance factor in a binary search tree
+    > balance factor of a node is the height of its right subtree minus the
+    height of its left subtree
+    > a node is left-heavy if its balance factor is -1
+    > a node is right-heavy if its balance factor is +1
+
+
+  # Balance a binary search tree to create an AVL tree
+    > By hand: calculate the balance factor for each subtree and make
+    the necessary rotations until each subtree only differs by a factor of 1;
+    balance factor can be -1, 0, 1
+
+  # rebalance after insertion or deletion
+    > insert the node such that it maintains the ordering property, calculate
+    the balance factor for each subtree, if needed perform the appropriate
+    rotation
+    > rebalancing a node is called a rotation; there are four possible rotations
+
+      1. LL Rotation: An LL imbalance occurs at a node A such that that A has a
+      balance factor -2 and a left child B with a balance factor -1 or 0.
+      Rebalance by performing a single right rotation at A
+
+          (-2)  A                                      B  (0)
+               / \                                   /   \
+        (-1)  B   T5      Right Rotate (A)         T2      A  (0)
+             / \          - - - - - - - - ->      /  \    /  \
+       (0) T2   T4                               T1  T3  T4  T5
+           / \
+         T1   T3
+
+      2. RR Rotation: An RR imbalance occurs at a node A such that A has a
+      balance factor +2 and a right child B with a balance factor +1 or 0.
+      Rebalance by performing a single left rotation at A
+
+          A  (+2)                                  B   (0)
+         /  \                                    /   \
+        T1   B  (+1)     Left Rotate(A)         A     T4  (0)
+            /  \         - - - - - - - ->      / \    / \
+           T2  T4  (0)                        T1  T2 T3  T5
+               / \
+              T3  T5
+      3. LR Rotation: An LR imbalance occurs at a node A such that A has a
+      balance factor -2 and a left child B with a balance factor +1.
+      Rebalance by performing a single left rotation at B and then a single
+      right rotation at A
+
+          A                             A                            C
+         / \                          /   \                        /   \
+        B   T4   Left Rotate (B)     C    T4   Right Rotate(A)    B     A
+       / \      - - - - - - - ->    / \       - - - - - - ->     / \   / \
+      T1   C                       B   T3                       T1 T2 T3 T4
+          / \                     / \
+        T2   T3                 T1   T2
+
+      4. RL Rotation: An RL imbalance occurs at a node A such that A has a
+      balance factor +2 and a right child B with a balance factor -1.
+      Rebalance by performing a single right rotation at B and then a single
+      left rotation at A
+
+          A                            A                            C
+         / \                          / \                          /  \
+       T1   B   Right Rotate (B)    T1   C      Left Rotate(A)   A      B
+           / \  - - - - - - - - ->     /  \   - - - - - - - ->  / \    / \
+          C   T4                      T2   B                  T1  T2  T3  T4
+         / \                              /  \
+       T2   T3                           T3   T4
+
+
+* Given an infix arithmetic expression draw the binary expression
+  tree representation of it. Show how to get the prefix and postfix
+  expressions from that tree.
+
+  # infix example: 2 + 3 * 5
+
+  # prefix example: *+235
+
+  # postfix example: 235*+
+
+  # draw the binary expression tree representation
+    >  2 + 3 * 5
+          *        # Inorder traversal -> infix expression: 2 + 3 * 5
+         / \
+        +   5      # Preorder traversal -> prefix expression: *+235
+       / \
+      2   3        # Postorder traversal -> postfix expression: 23+5*
+
+* You must be able to obtain the adjacency matrix for a given graph.
+  Or given the adjacency matrix build the graph.
+
+  # build adjacency matrix from a graph
+    > For each vertex on the graph, list the vertex, each of its adjacent
+    vertices (represented by an edge which is an arrow pointing to its adjacent
+    vertices if it is directed, just a line if undirected), and the associated
+    weight if given (number above the edge)
+    > Build a matrix where each mat[row][col] value represents an edge
+    weight (if the graph is unweighted, use 1 for the existence of an edge);
+    zero if no edge exists, and a val > 0 if an edge exists
+
+      * Ex:
+        0            0, 1, 1        # Representation as a 2D list
+      /   \    --->  0, 2, 1  --->  mat = [[0, 1, 1], [1, 0, 1], [1, 1, 0]]
+     1 --- 2         1, 0, 1        # Representation as a matrix
+                     1, 2, 1               0   1   1
+                     2, 0, 1               1   0   1
+                     2, 1, 1               1   1   0
+
+  # build a graph given an adjacency matrix
+    > Convert the matrix to a list of each vertex, each of its adjacent
+    vertices, and the corresponding weight if given
+    > Draw a graph where every vertex is shown once, with an arrow pointing
+    to its adjacent vertices if it is directed (just a line if undirected), and
+    put its weight if given (not necessary if unweighted)
+
+      * Ex:
+        # Representation as a 2D list                 0, 1, 1
+        mat = [[0, 1, 1], [1, 0, 1], [1, 1, 0]]       0, 2, 1          0
+        # Representation as a matrix            -->   1, 0, 1  -->   /   \
+                0   1   1                             1, 2, 1       1 --- 2
+                1   0   1                             2, 0, 1
+                1   1   0                             2, 1, 1
+
+* You must be familiar and be able the trace the following graph
+  algorithms - Depth First Search (DFS), Breadth First Search (BFS),
+  Topological Sort, Minimum Cost Spanning Tree using Kruskal's and
+  Prim's algorithm, and Dijkstra's Single Source Shortest Path
+  algorithm. Determine if there is an Eulerian path in a graph and
+  trace that Eulerian path.
+
+  # Tutorials:
+   > DFS: https://www.tutorialspoint.com/data_structures_algorithms/depth_first_traversal.htm
+   > BFS: https://www.hackerearth.com/practice/algorithms/graphs/breadth-first-search/tutorial/
+   > Topological Sort: http://www.cs.cornell.edu/courses/cs312/2004fa/lectures/lecture15.htm
+
+  # Depth first search (DFS): method for traversing a graph
+    0. Select a starting vertex or root if it is a tree.
+       Make it the current vertex. Mark it visited and
+       push on the stack.
+
+    1. If possible, visit an adjacent
+       unvisited vertex from current (in order). Make
+       it current. Mark it visited, and push it on the
+       stack.
+
+    2. If you cannot follow step 1, pop the stack.
+       Then peek and set that vertex to current and
+       repeat step 1.
+
+    3. If the stack is empty then you are done.
+
+      > Ex:
+                D
+             /  |  \
+            T   C   F     # Output = [D, T, L, Q, B, C, S, F]
+            |   |   |
+            L   B   S
+             \  |  /
+                Q
+
+  # Breadth first search (BFS)
+    0. Select a starting vertex. Make it current
+       and mark it visited.
+
+    1. Visit the next unvisited adjacent vertex
+       (in order). Mark it visited and insert it
+       into the queue.
+
+    2. If you cannot carry out step 1, because
+       there are no more unvisited vertices, remove
+       a vertex from the queue (if possible) and
+       make it the current vertex and repeat step 1.
+
+    3. If the queue is empty then you are done.
+
+      > Ex:
+                D
+             /  |  \
+            T   C   F     # Output = [D, T, C, F, L, B, S, Q]
+            |   |   |
+            L   B   S
+             \  |  /
+                Q
+
+  # Topological sort: an ordering of the vertices V1, V2, ..., Vn, such that
+  if there is an edge directed towards vertex Vj from vertex Vi, then Vi comes
+  before Vj
+    0.
+    1.
+    2.
+
+    > Ex:
+              ->  D  ->  C
+            /     ^      ^      M
+          S       |      |      ^     # Output = [S, D, C, Q, L, S, M, P, T]
+            \                  /
+              ->  Q  ->  L -> S
+
+              P -> T
+
+  # Minimum Cost Spanning tree
+
+      # Kruskal's algorithm
+        0. Sort all the edges in increasing order of their weight.
+        1. Pick the smallest edge. Check if it forms a cycle with the
+           spanning tree formed so far. If cycle is not formed, include
+           this edge. Else, discard it.
+        2. Repeat step #1 until there are (V-1) edges in the spanning tree.
+
+      # Prim's algorithm
+        0. Start at any vertex in the graph, mark it as visited and add
+           it to a list that will contain the visited vertices.
+        1. Find an edge with the minimum cost in the graph that connects
+           any visited vertex to an unvisited vertex and does not make
+           a cycle.
+        2. mark this vertex as visited and add it to the list.
+        3. Repeat #1 and #2 until all vertices have been visited
+
+      # Dijkstra's Single Source Shortest Path algorithm
+        0. Start at any vertex and find the cost to move to all adjacent
+           vertices
+        1. Choose the path with the lowest cost and update the table
+        2. from this vertex, find the cost of moving to all adjacent
+           vertices, and choose the one with the cheapest path from
+           the initial starting point
+        3. Repeat #2 until all vertices have been visited
+
+  # Eulerian Path: A path in a graph where every edge is used exactly once,
+  starting and ending at different vertices
+    > Criteria:
+      0. All vertices with non-zero degree (at least one edge) are connected
+      1. Exactly two vertices have odd degree and all other have even
+      degree
+
+  # Eulerian Circuit: A circuit that uses every edge of a graph is used exactly
+  once and which starts and ends on the same vertex
+    > Criteria:
+      0. All vertices with non-zero degree are connected
+      1. All vertices have an even degree
+
+  # Hamiltonian Path: A path in a graph that passes through every vertex exactly
+  once
+
+  # Hamiltonian Circuit: A circuit in a graph that passes through every vertex
+  exactly once
+    > Two theorems (not necessary for the existence of Hamiltonian graphs):
+      0. Dirac's Theorem: If G is a simple graph with n vertices with n >= 3
+         such that the degree of every vertex in G is at least n/2, then G has
+         a Hamiltonian circuit
+
+      1. Ore's Theorem: If G is a simple graph with n vertices with n >= 3 such
+         that deg(u) + deg(v) >= n for every pair of non-adjacent vertices u and
+         v in G, then G has a Hamiltonian circuit
+
+* Given the description of a new data structure you should be able
+  to write the class to represent it.
+
+  # Indepth list: https://en.wikipedia.org/wiki/List_of_data_structures
+
+  # Types of Data structures:
+    > Primitive Types
+      * Boolean
+      * Character
+      * Floating Point
+      * Fixed Point
+      * Integer
+      * Pointer
+      * Enumerated Type
+
+    > Composite Types
+      * Array
+      * Tuple
+      * String
+      * Union
+      * Tagged Union
+
+    > Abstract Data Types
+      * Container
+      * List
+      * Linked List
+      * Multimap
+      * Set
+      * Multiset
+      * Stack
+      * Queue
+      * Double-ended Queue
+      * Priority Queue
+      * Tree
+      * Graph
+      
+      

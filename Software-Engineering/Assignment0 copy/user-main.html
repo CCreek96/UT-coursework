@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="shortcut icon" href="">
+    <title>User File Upload</title>
+    <link rel="stylesheet" href="main.css">
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+   <h1>Select answer key/file to upload</h1>
+   <input type="file" accept = ".txt, .csv" onchange="loadFile(this)">
+   <script>
+       var userTextAsString = "";
+       var submittedAnswers = [];
+       function loadFile(o)
+       {
+           var fr = new FileReader();
+           fr.onload = function(e){
+                   //showDataFile(e, o);
+                   document.getElementById("data").innerText = e.target.result;
+                   converter(e);
+                   console.log(submittedAnswers.toString());
+               };
+           fr.readAsText(o.files[0]);
+       }
+
+
+
+       function converter(e){
+           var innerArray = []
+           userTextAsString += e.target.result.split(' ');
+           for(i=0; i<userTextAsString.length; i++){
+               innerArray.push([userTextAsString.charAt(i)]);
+           }
+           submittedAnswers.push(innerArray);
+       }
+   </script>
+        <form method="get" action="login.html">
+        <center>
+        <button type="submit">Home</button>
+        </center>
+</body>
+
+</html>
